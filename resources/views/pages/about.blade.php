@@ -10,18 +10,25 @@
             <div>
                 <h2>Zaif</h2>
             </div>
-                <h4>Last: {{$zaif['last']}} JPY/BTC</h4>
-                <h4>High: {{$zaif['high']}} JPY/BTC</h4>
-                <h4>Low: {{$zaif['low']}} JPY/BTC</h4>
-                <h4>Vwap: {{$zaif['vwap']}} JPY/BTC</h4>
-                <h4>Volume: {{$zaif['volume']}} </h4>
-                <h4>Bid: {{$zaif['bid']}} JPY/BTC</h4>
-                <h4>Ask: {{$zaif['ask']}} JPY/BTC</h4>
+            <div>
+                <h4>Last: {{$zaif['json']['last']}} JPY/BTC</h4>
+                <h4>High: {{$zaif['json']['high']}} JPY/BTC</h4>
+                <h4>Low: {{$zaif['json']['low']}} JPY/BTC</h4>
+                <h4>Vwap: {{$zaif['json']['vwap']}} JPY/BTC</h4>
+                <h4>Volume: {{$zaif['json']['volume']}} </h4>
+                <h4>Ask: {{$zaif['json']['ask']}} JPY/BTC</h4>
+                <h4>Bid: {{$zaif['json']['bid']}} JPY/BTC</h4>
             </div>
             <br>
+            <div>
+                <h4>Invoice +1.0% (TTS): {{ floor($zaif['json']['ask'] * 1.010) }} JPY/BTC </h4>
+                <h4>Invoice -1.0% (TTB): {{ floor($zaif['json']['bid'] * 0.990) }} JPY/BTC </h4>
             </div>
-                <h4>Invoice +1.0% (TTS): {{ floor($zaif['ask'] * 1.010) }} JPY/BTC </h4>
-                <h4>Invoice -1.0% (TTB): {{ floor($zaif['bid'] * 0.990) }} JPY/BTC </h4>
+            <br>
+            <div>
+                <h5>Current Exchange Price</h5>
+                <h4>Current TTB: {{ $zaif['buy'] }} JPY/BTC </h4>
+                <h4>Current TTS: {{ $zaif['sell'] }} JPY/BTC </h4>
             </div>
         </div>
         <br>
@@ -72,6 +79,21 @@
                     <h4>Last: {{ floor($bitstamp['last'] * $usd_rates['JPY']) }} JPY/BTC</h4>
                     <h4>Ask: {{ floor($bitstamp['ask'] * $usd_rates['JPY']) }} JPY/BTC</h4>
                     <h4>Bid: {{ floor($bitstamp['bid'] * $usd_rates['JPY']) }} JPY/BTC</h4>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div  class="content">
+            <div>
+                <h2>Blockchain Info - Market Prices and exchanges rates</h2>
+            </div>
+            <div>
+                <h5> The 15 minutes delayed market price </h5>
+                <h4> {{ $blockchain_info['JPY']['15m'] }} JPY/BTC</h4>
+                <div>
+                    <h4>Last: {{ $blockchain_info['JPY']['last'] }} JPY/BTC</h4>
+                    <h4>Ask: {{ $blockchain_info['JPY']['buy'] }} JPY/BTC</h4>
+                    <h4>Bid: {{ $blockchain_info['JPY']['sell'] }} JPY/BTC</h4>
                 </div>
             </div>
         </div>
